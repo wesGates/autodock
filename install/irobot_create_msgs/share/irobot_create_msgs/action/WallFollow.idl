@@ -1,0 +1,31 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/WallFollow.action
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Duration.idl"
+
+module irobot_create_msgs {
+  module action {
+    module WallFollow_Goal_Constants {
+      const int8 FOLLOW_RIGHT = -1;
+      const int8 FOLLOW_LEFT = 1;
+    };
+    @verbatim (language="comment", text=
+      "Request")
+    struct WallFollow_Goal {
+      int8 follow_side;
+
+      builtin_interfaces::msg::Duration max_runtime;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct WallFollow_Result {
+      builtin_interfaces::msg::Duration runtime;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct WallFollow_Feedback {
+      boolean engaged;
+    };
+  };
+};

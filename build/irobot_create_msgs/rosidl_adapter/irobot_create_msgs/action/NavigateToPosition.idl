@@ -1,0 +1,62 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/NavigateToPosition.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module irobot_create_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Request")
+    struct NavigateToPosition_Goal {
+      @verbatim (language="comment", text=
+        "Drive to goal position in odometry frame using simple rotate/translate/rotate approach")
+      geometry_msgs::msg::PoseStamped goal_pose;
+
+      @verbatim (language="comment", text=
+        "Whether to achieve goal heading for final orientation or just use position")
+      boolean achieve_goal_heading;
+
+      @verbatim (language="comment", text=
+        "Max translation speed (positive m/s), will cap negative distance to negative speed")
+      @default (value=0.3)
+      float max_translation_speed;
+
+      @verbatim (language="comment", text=
+        "Max rotation speed (positive rad/s), will cap negative angle to negative speed")
+      @default (value=1.9)
+      float max_rotation_speed;
+    };
+    @verbatim (language="comment", text=
+      "Result" "\n"
+      "Pose where robot finished")
+    struct NavigateToPosition_Result {
+      geometry_msgs::msg::PoseStamped pose;
+    };
+    module NavigateToPosition_Feedback_Constants {
+      const int8 ROTATING_TO_GOAL_POSITION = 1;
+      @verbatim (language="comment", text=
+        "Whether robot is in second phase translating to to goal position")
+      const int8 DRIVING_TO_GOAL_POSITION = 2;
+      @verbatim (language="comment", text=
+        "Whether robot is in third phase rotating to face goal orientation")
+      const int8 ROTATING_TO_GOAL_ORIENTATION = 3;
+    };
+    @verbatim (language="comment", text=
+      "Feedback" "\n"
+      "Whether robot is in first phase rotating to face travel direction to goal position")
+    struct NavigateToPosition_Feedback {
+      @verbatim (language="comment", text=
+        "Which of the 3 phases above that robot is currently in")
+      int8 navigate_state;
+
+      @verbatim (language="comment", text=
+        "Remaining radians to rotate when robot is ROTATING_TO_GOAL_POSITION or ROTATING_TO_GOAL_ORIENTATION")
+      float remaining_angle_travel;
+
+      @verbatim (language="comment", text=
+        "How much distance is left to travel when robot is DRIVING_TO_GOAL_POSITION")
+      float remaining_travel_distance;
+    };
+  };
+};

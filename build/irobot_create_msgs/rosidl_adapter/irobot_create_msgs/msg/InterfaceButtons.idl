@@ -1,0 +1,30 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from irobot_create_msgs/msg/InterfaceButtons.msg
+// generated code does not contain a copyright notice
+
+#include "irobot_create_msgs/msg/Button.idl"
+#include "std_msgs/msg/Header.idl"
+
+module irobot_create_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "This message is the status of the 3 interface buttons on the Create faceplate")
+    struct InterfaceButtons {
+      @verbatim (language="comment", text=
+        "Header stamp is time at which information was collected")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Left button on faceplate marked with 1 dot")
+      irobot_create_msgs::msg::Button button_1;
+
+      @verbatim (language="comment", text=
+        "Center Power button on faceplate")
+      irobot_create_msgs::msg::Button button_power;
+
+      @verbatim (language="comment", text=
+        "Right button on faceplate marked with 2 dots")
+      irobot_create_msgs::msg::Button button_2;
+    };
+  };
+};

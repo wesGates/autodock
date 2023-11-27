@@ -1,0 +1,51 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/AudioNoteSequence.action
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Duration.idl"
+#include "irobot_create_msgs/msg/AudioNoteVector.idl"
+
+module irobot_create_msgs {
+  module action {
+    module AudioNoteSequence_Goal_Constants {
+      const int32 INFINITE = -1;
+    };
+    @verbatim (language="comment", text=
+      "Request" "\n"
+      "Special number of iterations to signify play sequence until canceled")
+    struct AudioNoteSequence_Goal {
+      @verbatim (language="comment", text=
+        "Number of note_sequence iterations to play, defaults to 1")
+      @default (value=1)
+      int32 iterations;
+
+      @verbatim (language="comment", text=
+        "Sequence of notes to play per iteration")
+      irobot_create_msgs::msg::AudioNoteVector note_sequence;
+    };
+    @verbatim (language="comment", text=
+      "Result" "\n"
+      "Whether sequence played all requested iterations")
+    struct AudioNoteSequence_Result {
+      boolean complete;
+
+      @verbatim (language="comment", text=
+        "Number of iterations of note sequence that were played")
+      int32 iterations_played;
+
+      @verbatim (language="comment", text=
+        "Runtime of audio playback")
+      builtin_interfaces::msg::Duration runtime;
+    };
+    @verbatim (language="comment", text=
+      "Feedback" "\n"
+      "Number of iterations of note sequence that have been played")
+    struct AudioNoteSequence_Feedback {
+      int32 iterations_played;
+
+      @verbatim (language="comment", text=
+        "Runtime of audio playback so far")
+      builtin_interfaces::msg::Duration current_runtime;
+    };
+  };
+};

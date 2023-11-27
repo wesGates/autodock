@@ -1,0 +1,25 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from irobot_create_msgs/msg/WheelVels.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module irobot_create_msgs {
+  module msg {
+    @verbatim (language="comment", text=
+      "This message contains wheel velocity measurements.")
+    struct WheelVels {
+      @verbatim (language="comment", text=
+        "Header stamp should be acquisition time of measure.")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "Velocity measure for left wheel in rad/sec.")
+      float velocity_left;
+
+      @verbatim (language="comment", text=
+        "Velocity measure for right wheel in rad/sec.")
+      float velocity_right;
+    };
+  };
+};

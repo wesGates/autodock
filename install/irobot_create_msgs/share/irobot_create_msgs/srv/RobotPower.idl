@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from irobot_create_msgs/srv/RobotPower.srv
+// generated code does not contain a copyright notice
+
+
+module irobot_create_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "This service cuts power from the battery to the system, powering off robot and all accessories")
+    struct RobotPower_Request {
+      uint8 structure_needs_at_least_one_member;
+    };
+    struct RobotPower_Response {
+      @verbatim (language="comment", text=
+        "indicate successful application of command, robot may power down before response is transmitted")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "informational for result, robot may power down before response is transmitted")
+      string message;
+    };
+  };
+};

@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/RotateAngle.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module irobot_create_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Request")
+    struct RotateAngle_Goal {
+      @verbatim (language="comment", text=
+        "Rotate for relative angle (radians) from current robot position.  Angles greater than 2 PI will cause the robot to rotate in multiple circles")
+      float angle;
+
+      @verbatim (language="comment", text=
+        "Max rotation speed (positive rad/s), will cap negative angle to negative speed")
+      @default (value=1.9)
+      float max_rotation_speed;
+    };
+    @verbatim (language="comment", text=
+      "Result" "\n"
+      "Pose where robot finished")
+    struct RotateAngle_Result {
+      geometry_msgs::msg::PoseStamped pose;
+    };
+    @verbatim (language="comment", text=
+      "Feedback" "\n"
+      "Remaining radians to rotate")
+    struct RotateAngle_Feedback {
+      float remaining_angle_travel;
+    };
+  };
+};

@@ -1,0 +1,42 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/LedAnimation.action
+// generated code does not contain a copyright notice
+
+#include "builtin_interfaces/msg/Duration.idl"
+#include "irobot_create_msgs/msg/LightringLeds.idl"
+
+module irobot_create_msgs {
+  module action {
+    module LedAnimation_Goal_Constants {
+      const int8 BLINK_LIGHTS = 1;
+      const int8 SPIN_LIGHTS = 2;
+    };
+    @verbatim (language="comment", text=
+      "Request" "\n"
+      "Supported Animation types")
+    struct LedAnimation_Goal {
+      @verbatim (language="comment", text=
+        "Animation to apply")
+      int8 animation_type;
+
+      @verbatim (language="comment", text=
+        "LED values to apply to animation")
+      irobot_create_msgs::msg::LightringLeds lightring;
+
+      @verbatim (language="comment", text=
+        "Time to apply animation")
+      builtin_interfaces::msg::Duration max_runtime;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct LedAnimation_Result {
+      builtin_interfaces::msg::Duration runtime;
+    };
+    @verbatim (language="comment", text=
+      "Feedback" "\n"
+      "Time the animation has left to run")
+    struct LedAnimation_Feedback {
+      builtin_interfaces::msg::Duration remaining_runtime;
+    };
+  };
+};

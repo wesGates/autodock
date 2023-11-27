@@ -1,0 +1,6 @@
+setup.py
+irobot_create_msgs/__init__.py
+irobot_create_msgs.egg-info/PKG-INFO
+irobot_create_msgs.egg-info/SOURCES.txt
+irobot_create_msgs.egg-info/dependency_links.txt
+irobot_create_msgs.egg-info/top_level.txt

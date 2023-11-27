@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from irobot_create_msgs/srv/ResetPose.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module irobot_create_msgs {
+  module srv {
+    @verbatim (language="comment", text=
+      "This service reset the robot pose estimate to the provided one")
+    struct ResetPose_Request {
+      geometry_msgs::msg::Pose pose;
+    };
+    struct ResetPose_Response {
+      uint8 structure_needs_at_least_one_member;
+    };
+  };
+};

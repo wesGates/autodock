@@ -1,0 +1,37 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from irobot_create_msgs/msg/IrOpcode.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module irobot_create_msgs {
+  module msg {
+    module IrOpcode_Constants {
+      const uint8 CODE_IR_FORCE_FIELD = 161;
+      const uint8 CODE_IR_VIRTUAL_WALL = 162;
+      const uint8 CODE_IR_BUOY_GREEN = 164;
+      const uint8 CODE_IR_BUOY_RED = 168;
+      const uint8 CODE_IR_BUOY_BOTH = 172;
+      const uint8 CODE_IR_EVAC_GREEN_FIELD = 244;
+      const uint8 CODE_IR_EVAC_RED_FIELD = 248;
+      const uint8 CODE_IR_EVAC_BOTH_FIELD = 252;
+      const uint8 SENSOR_OMNI = 0;
+      const uint8 SENSOR_DIRECTIONAL_FRONT = 1;
+    };
+    @verbatim (language="comment", text=
+      "This message describes a detected ir opcode.")
+    struct IrOpcode {
+      @verbatim (language="comment", text=
+        "time when we saw the opcode")
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "opcode")
+      uint8 opcode;
+
+      @verbatim (language="comment", text=
+        "the sensor which saw the opcode")
+      uint8 sensor;
+    };
+  };
+};

@@ -1,0 +1,23 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from irobot_create_msgs/srv/EStop.srv
+// generated code does not contain a copyright notice
+
+
+module irobot_create_msgs {
+  module srv {
+    struct EStop_Request {
+      @verbatim (language="comment", text=
+        "true enables e-stop disabling drive motor power, false disables e-stop re-enabling motor power")
+      boolean e_stop_on;
+    };
+    struct EStop_Response {
+      @verbatim (language="comment", text=
+        "indicate successful application of command")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "informational for result")
+      string message;
+    };
+  };
+};

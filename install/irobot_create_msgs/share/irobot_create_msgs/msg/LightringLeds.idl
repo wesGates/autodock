@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from irobot_create_msgs/msg/LightringLeds.msg
+// generated code does not contain a copyright notice
+
+#include "irobot_create_msgs/msg/LedColor.idl"
+#include "std_msgs/msg/Header.idl"
+
+module irobot_create_msgs {
+  module msg {
+    typedef irobot_create_msgs::msg::LedColor irobot_create_msgs__msg__LedColor;
+    typedef irobot_create_msgs__msg__LedColor irobot_create_msgs__msg__LedColor__6[6];
+    @verbatim (language="comment", text=
+      "This message sets the RGB values of the lightright LEDs")
+    struct LightringLeds {
+      std_msgs::msg::Header header;
+
+      @verbatim (language="comment", text=
+        "If you look at the lightring as an analog clock with 12 at the front" "\n"
+        "of the robot" "\n"
+        "led index 0 is 4 o'clock," "\n"
+        "led index 1 is 2 o'clock," "\n"
+        "led index 2 is 12 o'clock," "\n"
+        "led index 3 is 10 o'clock," "\n"
+        "led index 4 is 8 o'clock," "\n"
+        "led index 5 is 6 o'clock")
+      irobot_create_msgs__msg__LedColor__6 leds;
+
+      @verbatim (language="comment", text=
+        "Whether to override system's default light patterns with given command" "\n"
+        "Set to false to return control of lights to system")
+      boolean override_system;
+    };
+  };
+};

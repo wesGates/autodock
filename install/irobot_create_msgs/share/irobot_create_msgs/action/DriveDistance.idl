@@ -1,0 +1,34 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/DriveDistance.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module irobot_create_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Request")
+    struct DriveDistance_Goal {
+      @verbatim (language="comment", text=
+        "Drive a distance (meters) in a straight line")
+      float distance;
+
+      @verbatim (language="comment", text=
+        "Max translation speed (positive m/s), will cap negative distance to negative speed")
+      @default (value=0.3)
+      float max_translation_speed;
+    };
+    @verbatim (language="comment", text=
+      "Result" "\n"
+      "Pose where robot finished")
+    struct DriveDistance_Result {
+      geometry_msgs::msg::PoseStamped pose;
+    };
+    @verbatim (language="comment", text=
+      "Feedback" "\n"
+      "How much distance is left to travel")
+    struct DriveDistance_Feedback {
+      float remaining_travel_distance;
+    };
+  };
+};

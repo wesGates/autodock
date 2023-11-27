@@ -1,0 +1,24 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/Dock.action
+// generated code does not contain a copyright notice
+
+
+module irobot_create_msgs {
+  module action {
+    @verbatim (language="comment", text=
+      "Request")
+    struct Dock_Goal {
+      uint8 structure_needs_at_least_one_member;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct Dock_Result {
+      boolean is_docked;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct Dock_Feedback {
+      boolean sees_dock;
+    };
+  };
+};

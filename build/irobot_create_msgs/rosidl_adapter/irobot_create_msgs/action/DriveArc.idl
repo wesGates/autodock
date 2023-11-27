@@ -1,0 +1,46 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from irobot_create_msgs/action/DriveArc.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module irobot_create_msgs {
+  module action {
+    module DriveArc_Goal_Constants {
+      const int8 TRANSLATE_FORWARD = 1;
+      const int8 TRANSLATE_BACKWARD = -1;
+    };
+    @verbatim (language="comment", text=
+      "Request")
+    struct DriveArc_Goal {
+      @verbatim (language="comment", text=
+        "Whether to arc forward or backward from robot's current position")
+      int8 translate_direction;
+
+      @verbatim (language="comment", text=
+        "Relative angle (radians) for robot to rotate along arc from current heading.  Angles greater than 2 PI will cause the robot to rotate in multiple circles")
+      float angle;
+
+      @verbatim (language="comment", text=
+        "Radius of arc (meters) for robot to drive along")
+      float radius;
+
+      @verbatim (language="comment", text=
+        "Max translation speed (positive m/s), will cap negative distance to negative speed")
+      @default (value=0.3)
+      float max_translation_speed;
+    };
+    @verbatim (language="comment", text=
+      "Result" "\n"
+      "Pose where robot finished")
+    struct DriveArc_Result {
+      geometry_msgs::msg::PoseStamped pose;
+    };
+    @verbatim (language="comment", text=
+      "Feedback" "\n"
+      "Remaining radians to rotate")
+    struct DriveArc_Feedback {
+      float remaining_angle_travel;
+    };
+  };
+};
