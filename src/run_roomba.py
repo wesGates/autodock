@@ -7,7 +7,7 @@ from pynput.keyboard import KeyCode
 from key_commander import KeyCommander
 
 # Import the Roomba class from myDock_audiostuff
-from Roomba_skeleton import Roomba
+from Roomba_skeletonv2 import Roomba
 
 # Your ROS Node packages 
 from check_sensor import DockStatusPublisher
@@ -29,48 +29,38 @@ ready_notes = [
 	AudioNote(frequency=784, max_runtime=Duration(sec=0, nanosec=100000000))
 ]
 
-global_rotation_angle = None
 
 if __name__ == '__main__':
-    exec = MultiThreadedExecutor(3)
+    exec = MultiThreadedExecutor(4)
     exec.add_node(roomba)
     exec.add_node(sensor)
 
     roomba.chirp(ready_notes)
 
-	# KeyCommander Definitions
-    keycom1 = KeyCommander([
+    # Consolidated KeyCommander Definitions
+    keycom = KeyCommander([
         (KeyCode(char='u'), roomba.undock_and_drive),
-    ])
-    print("Press 'U' to undock and move forward, or to move forward after being undocked")
-
-    keycom2 = KeyCommander([
         (KeyCode(char='r'), roomba.rotate_randomly),
-    ])
-    print("Press 'R' to rotate randomly")
-    print(global_rotation_angle)
-
-    keycom3 = KeyCommander([
         (KeyCode(char='f'), roomba.drive_forward),
-    ])
-    print("Press 'F' to move forward")
-
-    keycom4 = KeyCommander([
         (KeyCode(char='t'), roomba.rotate_180),
+        (KeyCode(char='y'), roomba.undo_random_rotation),
+        (KeyCode(char='q'), roomba.rotate_troubleshooting),
     ])
+
+    # Print Statements for Key Bindings
+    print("Press 'U' to undock and move forward, or to move forward after being undocked")
+    print("Press 'R' to rotate randomly")
+    print("Press 'F' to move forward")
     print("Press 'T' to rotate 180 degrees")
-    
-	# Adding each keycom to the executor
-    exec.add_node(keycom1)
-    exec.add_node(keycom2) 
-    exec.add_node(keycom3)
-    exec.add_node(keycom4)
-    
+    print("Press 'Y' to undo the random rotation")
+    print("Press 'q' for rotate troubleshooting")
+
+    # Adding keycom to the executor
+    exec.add_node(keycom)
+
     # Try/Except to shutdown "gracefully"
     try:
         exec.spin()
     except KeyboardInterrupt:
-        keycom1.stop()
-        keycom2.stop()
-        keycom3.stop()
-        rclpy.shutdown() # Added comment
+        keycom.stop()
+        rclpy.shutdown()
