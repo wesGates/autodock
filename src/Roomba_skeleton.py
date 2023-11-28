@@ -116,6 +116,20 @@ class Roomba(Node):
 		rotate_goal.angle = random_angle 
 		self.rotate_ac.send_goal(rotate_goal)
 
+	def rotate_180(self):
+		"""
+		Turns around
+		"""
+		self.chirp(start_note)
+
+		rotate_angle = 3.14
+		self.rotate_ac.wait_for_server()
+
+		# Create and send the goal
+		rotate_goal = RotateAngle.Goal()
+		rotate_goal.angle = rotate_angle 
+		self.rotate_ac.send_goal(rotate_goal)
+		
 		## Wait for the action to complete (optional based on use case)
 		# self.rotate_ac.wait_for_result()
 

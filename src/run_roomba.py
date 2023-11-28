@@ -54,12 +54,17 @@ if __name__ == '__main__':
         (KeyCode(char='f'), roomba.drive_forward),
     ])
     print("Press 'F' to move forward")
+
+    keycom4 = KeyCommander([
+        (KeyCode(char='t'), roomba.rotate_180),
+    ])
+    print("Press 'T' to rotate 180 degrees")
     
 	# Adding each keycom to the executor
     exec.add_node(keycom1)
     exec.add_node(keycom2) 
     exec.add_node(keycom3)
-
+    exec.add_node(keycom4)
     
     # Try/Except to shutdown "gracefully"
     try:
@@ -68,4 +73,4 @@ if __name__ == '__main__':
         keycom1.stop()
         keycom2.stop()
         keycom3.stop()
-        rclpy.shutdown()
+        rclpy.shutdown() # Added comment
