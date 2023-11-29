@@ -6,11 +6,12 @@ from rclpy.callback_groups import MutuallyExclusiveCallbackGroup
 
 # Create3 packages
 from irobot_create_msgs.action import DriveDistance, Undock, RotateAngle, AudioNoteSequence, NavigateToPosition
-from irobot_create_msgs.msg import AudioNote, AudioNoteVector
+from irobot_create_msgs.msg import AudioNote, AudioNoteVector, IrOpcode
 from builtin_interfaces.msg import Duration
 from std_msgs.msg import String
 from geometry_msgs.msg import PoseStamped
 from geometry_msgs.msg import Quaternion
+
 
 # Python packages
 import random
@@ -36,6 +37,8 @@ class NavigatorNode(Node):
 													 self.listener_callback, 10, callback_group=cb_Subscriptions)
 		self.pose_subscription = self.create_subscription(PoseStamped, '/pose_topic', 
 													self.pose_callback, 10, callback_group= cb_Subscriptions)
+		self.subscription = self.create_subscription(IrOpcode,'/check_iropcode',  
+		    										self.ir_opcode_callback, 10, callback_group= cb_Subscriptions)
 
 		# Actions
 		self.undock_ac = ActionClient(self, Undock, f'/{namespace}/undock',
