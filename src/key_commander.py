@@ -36,7 +36,7 @@ class KeyCommander(Node):
 		# check for callback attached to this key and execute if found
 		for key_cb_pair in self._key_callbacks:
 			if key_cb_pair[0] == key:
-				self.get_logger().info('executing callback attached to key')
+				# self.get_logger().info('executing callback attached to key')
 				# keys worth taking note of are published
 				self.publish_key_pressed(key_cb_pair[0])
 				# execute callback

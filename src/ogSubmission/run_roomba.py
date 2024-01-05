@@ -10,7 +10,7 @@ from key_commander import KeyCommander
 from Roomba_skeletonv2 import Roomba
 
 # Your ROS Node packages 
-from check_sensor import DockStatusPublisher
+from dock_status_node import DockStatusPublisher
 
 # Initialize the ROS client library, namespace, sensor, and class
 rclpy.init()
