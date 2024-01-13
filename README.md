@@ -1,5 +1,5 @@
 # ros2_Create3
-Packages and custom code to control a Create3 mobile robot using ROS2 Humble on Ubuntu 22.04 LTS. 
+A custom auto-docking procedure for a Create3 mobile robot using ROS2 Humble on Ubuntu 22.04 LTS. 
 
 The goal of this project is to make my own auto-docking routine for the Create3 robot. The robot will undock, move to a random location, and then navigate and mount itself to the dock for charging without using the built-in docking function.
 
